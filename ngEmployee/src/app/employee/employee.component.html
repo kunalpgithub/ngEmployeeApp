@@ -1,0 +1,47 @@
+<form class="example-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    First Name
+    <input matInput ̥̥̥ />
+  </mat-form-field>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" required />
+  </label>
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      Street:
+      <input type="text" formControlName="street" />
+    </label>
+
+    <label>
+      City:
+      <input type="text" formControlName="city" />
+    </label>
+
+    <label>
+      State:
+      <input type="text" formControlName="state" />
+    </label>
+
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zip" required />
+    </label>
+  </div>
+  <div formArrayName="assets">
+    <h3>Assets</h3>
+    <button type="button" (click)="addAsset()">Add Asset</button>
+
+    <div *ngFor="let asset of assets.controls; let i = index">
+      <label>
+        Asset:
+        <input type="text" [formControlName]="i" />
+      </label>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+Employee Form Status: {{ employeeForm.status }}

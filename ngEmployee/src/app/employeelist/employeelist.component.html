@@ -1,0 +1,35 @@
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+  <ng-container matColumnDef="phoneNumber">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let element">{{ element.phoneNumber }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<table>
+  <tr>
+    <!-- *ngIf="Employees$ && Employees$.length > 0" -->
+    <th>FirstName</th>
+    <th>LastName</th>
+    <!-- <th>City</th>
+    <th>Asset</th> -->
+  </tr>
+  <tr *ngFor="let emp of empList">
+    <td>{{ emp.firstName }}</td>
+    <td>{{ emp.lastName }}</td>
+    <!-- <td>{{emp.address.city}}</td>
+    <td>{{emp.assets[0]}}</td> -->
+  </tr>
+</table>

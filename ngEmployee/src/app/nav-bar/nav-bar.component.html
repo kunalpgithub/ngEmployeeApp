@@ -1,0 +1,50 @@
+<header>
+  <p>
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        ngEmployee
+      </span>
+      <span class="example-spacer"></span>
+      <a
+        mat-button
+        routerLink="employee"
+        routerLinkActive="active"
+        *ngIf="auth.loggedIn"
+        >Employee</a
+      >
+      <a
+        mat-button
+        routerLink="employeelist"
+        routerLinkActive="active"
+        *ngIf="auth.loggedIn"
+        >EmployeeList</a
+      >
+      <a mat-button routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+        (click)="auth.login()"
+        *ngIf="!auth.loggedIn"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        (click)="auth.logout()"
+        *ngIf="auth.loggedIn"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+</header>
